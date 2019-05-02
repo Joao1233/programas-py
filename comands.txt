@@ -1,0 +1,49 @@
+Finalizar processos desnecessários : airmon-ng check kill
+
+Levantar e derrubar intefaces de redes : ifconfig wlan0 up / ifconfig wlan0 down
+
+Criar interfaces : iw dev wlan0 interface add mon0 type monitor/managed
+
+Conectar a uma rede : iw dev wlan connect -w "NOME DA REDE"
+
+Definir o gateway padrão do router : route add default gw 192.168.1.1 wlan0
+
+Definir o ip que o computador vai usar : ifconfig wlan0 192.168.1.4
+
+Scanear todas as redes por perto com informações : iw dev wlan0 scan
+
+Definir qual canal o computador vai operar : iw dev wlan0 set channel 11 
+
+Mudar de região : iw reg set BO(nese exemplo vai mudar para a Bolivia)
+
+Obter qual região : iw reg get
+
+Trocar a potência da placa : iwconfig wlan txpower 15
+
+Informações : iwconfig wlan0
+
+================================================================================
+
+iwconfig <interface de rede> <options>
+
+<options> : 
+
+mode >> iwconfig wlan0 mode monitor(ALTERA O MODO DE OPERAÇÃO DA INTERFACE)
+freq >> iwconfig wlan0 freq 2.462.G(ALTERA A FREQUÊNCIA)
+channel >> iwconfig wlan0 channel 4(ALÉM DE ALTERAR O CANAL MUDA A FREQUÊNCIA TAMBÉM)
+txpower >> iwconfig wlan0 txpower 30(ALTERA A POTENCIA DA PLACA DE REDE WLAN)
+key >> iwconfig wlan0 essid "NOME DA REDE" key 012345678(SE A REDE TER UMA CRIPTOGRAFIA "WEP" E A CHAVE EM HEXADECIMAL EU POSSO ME CONECTAR COM ESTE COMANDO)
+SE A CHAVE TIVER EM MODO ASCII iwconfig wlan0 essid "NOME DA REDE" key s:012345678
+
+===============================================================================
+
+iwlist <interface de rede> <options>
+
+<options> : 
+
+scan/scanning >> iwlist wlan0 scan (Escaneia redes wireless em busca de informações)
+freq/frequency >> iwlist wlan0 freq (Determina a frequencia suportada pela interface wireless)
+channel >> iwlist wlan0 channel (Determina a faixa de canais suportados pela interface wireless, caso alguma rede esteja conectada ele mostrarar o canal ativo)
+
+===============================================================================
+
